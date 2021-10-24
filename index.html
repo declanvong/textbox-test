@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #outputContainer {
+      height: 200px;
+    }
+
+    #underlays {
+      position: relative;
+    }
+
+    #output {
+      position: absolute;
+      white-space: pre-wrap;
+    }
+
+    .composing {
+      text-decoration: underline dotted;
+    }
+
+    .lineCursor {
+      position: absolute;
+      width: 1px;
+      background: black;
+      animation: 0.8s ease-in-out infinite cursorBlink;
+    }
+
+    .cursorStart {
+      width: 0;
+    }
+
+    .cursorEnd {
+      width: 0;
+    }
+
+    .selectionOverlay {
+      background: #00c4cc;
+      position: absolute;
+    }
+
+    ::selection {
+      background: #00c4cc;
+    }
+
+    #underlays {
+      user-select: none;
+      pointer-events: none;
+    }
+
+    #overlays {
+      position: relative;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes cursorBlink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="outputContainer">
+    <div id="underlays"></div>
+    <div id="output"></div>
+    <div id="overlays"></div>
+  </div>
+  <br/>
+  <input type="text" id="input"/>
+  <script src="index.js"></script>
+</body>
+</html>
